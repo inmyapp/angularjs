@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="application"><!-- ng-app="ชื่อของmodule" -->
+
+    <head>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="angular/css/bootstrap.min.css">
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="angular/css/bootstrap-theme.min.css">
+    </head>
+    
+    <body>
+    	<!-- Bootstrap JavaScript -->
+    	<script src="angular/js/lib/bootstrap.js"></script>
+    	<!--AngularJS Javascript -->
+    	<script src="angular/js/lib/angular.js"></script>
+    	<script src="angular/js/app.js"></script>
+    
+	    <header>
+	      <h1 class="text-center">{{"Tanaka-San"}}'s Sushi Store</h1>
+	      <h2 class="text-center">Open Since {{10*200}}. </h2>
+	    </header>
+	    
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-md-6">
+	                <div class="list-group">
+	                    <div class="list-group-item" ng-controller="storeController as store">
+	                        <h1>{{sushi.name}}</h1>
+							<h2>{{sushi.price}} yen</h2>
+					        <p>{{sushi.description}} <span ng-if="checked && sushi.canPurchase"> + Wasabi</span></p>
+					            <div ng-show="sushi.canPurchase">
+					               	 ใส่วาซาบิ : <input type="checkbox" ng-model="checked" /></br>
+					            	<button class="btn btn-default">สั่งซื้อ</button>
+					            </div>
+					        <h3 ng-hide="sushi.canPurchase">ขายหมดแล้วจ้า</h3>					
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    
+    </body>
+</html>
